@@ -45,19 +45,19 @@ public class EventoDAO {
 
     }
 
-    public String retornaSQL(String filtroEvento, String filtroCidade){
+    public String retornaSQL(String filtroEvento, String filtroCidade, String ordem){
         return  "SELECT Evento._id, nome, data, idlocal, " +
                 "nome_local, bairro, cidade, capacidade_de_publico FROM " +
                 EventoEntity.TABLE_NAME +
                 " INNER JOIN " + LocalEntity.TABLE_NAME + " ON " +
                 EventoEntity.COLUMN_NAME_ID_LOCAL +
                 " = " + LocalEntity.TABLE_NAME +"."+ LocalEntity._ID + " WHERE " + "nome" + " LIKE " + "'%" + filtroEvento  +"%'" +
-                 " AND " + "cidade" + " LIKE " + "'%" + filtroCidade  +"%'";
+                 " AND " + "cidade" + " LIKE " + "'%" + filtroCidade  +"%'" + "ORDER BY nome " + ordem;
     }
 
-    public List<Evento> Listar(String filtroEvento, String filtroCidade) {
+    public List<Evento> Listar(String filtroEvento, String filtroCidade, String ordem) {
         List<Evento> eventos = new ArrayList<>();
-        Cursor cursor = dbGateway.getDatabase().rawQuery(retornaSQL(filtroEvento, filtroCidade), null);
+        Cursor cursor = dbGateway.getDatabase().rawQuery(retornaSQL(filtroEvento, filtroCidade, ordem), null);
         while (cursor.moveToNext()) {
             int id = cursor.getInt(cursor.getColumnIndex(EventoEntity._ID));
             String nome = cursor.getString(cursor.getColumnIndex(EventoEntity.COLUMN_NAME_NOME));

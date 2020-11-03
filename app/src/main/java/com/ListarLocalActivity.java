@@ -67,6 +67,4 @@ public class ListarLocalActivity extends AppCompatActivity {
         finish();
     }
 
-
-
 }

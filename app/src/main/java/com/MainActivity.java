@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.database.EventoDAO;
 import com.example.evento.R;
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private int id = 0;
     public EditText filtroEvento;
     public EditText filtrocidade;
+    public String ordem = "ASC";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
             public void afterTextChanged(Editable s) {
             }
         });
+
     }
 
     @Override
@@ -99,13 +102,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void filtrarGrid(View v) {
-
         EventoDAO eventoDAO = new EventoDAO(getApplicationContext());
         adapterEventos = new ArrayAdapter<Evento>(MainActivity.this,
                 android.R.layout.simple_list_item_1,
-                eventoDAO.Listar(filtroEvento.getText().toString(), filtrocidade.getText().toString()));
+                eventoDAO.Listar(filtroEvento.getText().toString(), filtrocidade.getText().toString(), ordem));
         listViewEventos.setAdapter(adapterEventos);
     }
+
+    public void ordemCrescente (View V){
+        ordem = "ASC";
+        filtrarGrid(null);
+
+    }
+    public void ordermDecrescente (View V){
+        ordem = "DESC";
+        filtrarGrid(null);
+    }
+
 
 
 }
