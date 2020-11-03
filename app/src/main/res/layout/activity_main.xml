@@ -38,24 +38,28 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="35dp">
+        android:layout_height="33dp">
 
         <Button
             android:id="@+id/buttonCresc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="#00BCD4"
             android:onClick="ordemCrescente"
             android:text="Crescente"
+            android:textColor="#FFFFFF"
             android:textSize="12sp" />
 
         <Button
             android:id="@+id/buttonDecresc"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
+            android:backgroundTint="#FF9800"
             android:onClick="ordermDecrescente"
             android:text="Decrescente"
+            android:textColor="#FFFFFF"
             android:textSize="12sp" />
     </LinearLayout>
 
