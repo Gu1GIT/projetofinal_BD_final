@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="40px"
+    android:background="#B68D8D"
+    android:backgroundTint="#FFFFFF"
+    android:orientation="vertical"
+    tools:context="com.MainActivity">
+
+    <TextView
+        android:id="@+id/textViewFiltro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Filtro Eventos" />
+
+    <EditText
+        android:id="@+id/editTextFiltroEvento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/textViewFiltroCidade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Filtro Cidade" />
+
+    <EditText
+        android:id="@+id/editTextFiltroCidade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <ListView
+        android:id="@+id/listView_local"
+        style="@style/Widget.AppCompat.ListView"
+        android:layout_width="match_parent"
+        android:layout_height="328dp"
+        android:background="#FFFFFF" />
+
+    <Button
+        android:id="@+id/buttonNovoLocal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#00BCD4"
+        android:onClick="onClickNew"
+        android:text="Novo Evento"
+        android:textColor="#FFFFFF" />
+
+    <Button
+        android:id="@+id/btnLocal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#00BCD4"
+        android:onClick="onClickLocal"
+        android:text="Locais"
+        android:textColor="#FFFFFF" />
+
+</LinearLayout>
