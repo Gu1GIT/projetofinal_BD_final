@@ -14,14 +14,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
 public class EventoDAO {
 
     private DBGateway dbGateway;
 
 
-    public EventoDAO(Context context){
-        dbGateway=DBGateway.getInstance(context);
+    public EventoDAO(Context context) {
+        dbGateway = DBGateway.getInstance(context);
     }
 
     public boolean salvar(Evento evento) {
@@ -45,14 +44,14 @@ public class EventoDAO {
 
     }
 
-    public String retornaSQL(String filtroEvento, String filtroCidade, String ordem){
-        return  "SELECT Evento._id, nome, data, idlocal, " +
+    public String retornaSQL(String filtroEvento, String filtroCidade, String ordem) {
+        return "SELECT Evento._id, nome, data, idlocal, " +
                 "nome_local, bairro, cidade, capacidade_de_publico FROM " +
                 EventoEntity.TABLE_NAME +
                 " INNER JOIN " + LocalEntity.TABLE_NAME + " ON " +
                 EventoEntity.COLUMN_NAME_ID_LOCAL +
-                " = " + LocalEntity.TABLE_NAME +"."+ LocalEntity._ID + " WHERE " + "nome" + " LIKE " + "'%" + filtroEvento  +"%'" +
-                 " AND " + "cidade" + " LIKE " + "'%" + filtroCidade  +"%'" + "ORDER BY nome " + ordem;
+                " = " + LocalEntity.TABLE_NAME + "." + LocalEntity._ID + " WHERE " + "nome" + " LIKE " + "'%" + filtroEvento + "%'" +
+                " AND " + "cidade" + " LIKE " + "'%" + filtroCidade + "%'" + "ORDER BY nome " + ordem;
     }
 
     public List<Evento> Listar(String filtroEvento, String filtroCidade, String ordem) {

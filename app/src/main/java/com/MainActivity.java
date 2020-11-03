@@ -38,33 +38,9 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<Evento> eventos = new ArrayList<Evento>();
         onClickListaEventos();
         filtroEvento = findViewById(R.id.editTextFiltroEvento);
-        filtroEvento.addTextChangedListener(new TextWatcher() {
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                filtrarGrid(null);
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-            }
-        });
-
         filtrocidade = findViewById(R.id.editTextFiltroCidade);
-        filtrocidade.addTextChangedListener(new TextWatcher() {
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                filtrarGrid(null);
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-            }
-        });
-
+        filtroAutomatico(filtroEvento);
+        filtroAutomatico(filtrocidade);
     }
 
     @Override
@@ -72,8 +48,6 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         filtrarGrid(null);
     }
-
-    private EditText yourEditText;
 
 
     private void onClickListaEventos() {
@@ -109,16 +83,31 @@ public class MainActivity extends AppCompatActivity {
         listViewEventos.setAdapter(adapterEventos);
     }
 
-    public void ordemCrescente (View V){
+    public void ordemCrescente(View V) {
         ordem = "ASC";
         filtrarGrid(null);
 
     }
-    public void ordermDecrescente (View V){
+
+    public void ordermDecrescente(View V) {
         ordem = "DESC";
         filtrarGrid(null);
     }
 
+    private void filtroAutomatico(EditText filtro) {
+        filtro.addTextChangedListener(new TextWatcher() {
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                filtrarGrid(null);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+            }
+        });
+    }
 
 
 }
