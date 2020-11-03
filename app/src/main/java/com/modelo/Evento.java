@@ -55,7 +55,8 @@ public class Evento implements Serializable {
     @NonNull
     @Override
     public String toString() {
-        return ("EVENTO: " + nome + " - " + "DATA: " + data + "\n" + local);
+//        return ("EVENTO: " + nome + " - " + "DATA: " + data + "\n" + local);
+        return ( nome + " - " +  data + "\n" + local);
     }
 }
 
